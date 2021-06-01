@@ -27,7 +27,7 @@ export default function Select() {
 				})
 			})
 		},
-		[ category ]
+		[ category, dispatch ]
 	)
 
 	return (
