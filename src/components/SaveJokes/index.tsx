@@ -2,10 +2,12 @@ import { useContext, useEffect, useState } from 'react'
 import { GlobalContext } from '../../context/globalContext'
 import axios from 'axios'
 import styled from 'styled-components'
+import { typeOfMultipleJokesObjects } from '../../Interfaces/index'
 
 const AnchorStyles = styled.a`
 	&.disabled {
-		display: none;
+		background-color: #f5f6f8;
+		color: #34394f;
 	}
 `
 
@@ -13,11 +15,11 @@ const SaveJokes = () => {
 	const { state, dispatch } = useContext(GlobalContext)
 	const { numberOfJokesToSave, jokesToSave } = state
 	const [ downloadLink, setDownloadLink ] = useState('')
-	// const text = jokesToSave.map((el) => el.joke)
-	console.log(jokesToSave.value.map((el: any) => el.joke))
+	const textToSave = jokesToSave.value.map((el: typeOfMultipleJokesObjects) => el.joke)
 
 	const makeTextFile = () => {
-		const data = new Blob([], { type: 'text/plain' })
+		//Put every single joke in a new line.
+		const data = new Blob([ textToSave.join('\n') ], { type: 'text/plain' })
 
 		if (downloadLink !== '') window.URL.revokeObjectURL(downloadLink)
 		setDownloadLink(window.URL.createObjectURL(data))
@@ -46,7 +48,7 @@ const SaveJokes = () => {
 			download='list.txt'
 			// link to the download URL
 			href={downloadLink}
-			className={numberOfJokesToSave < 0 || numberOfJokesToSave > 100 ? 'disabled' : ''}>
+			className={numberOfJokesToSave <= 0 || numberOfJokesToSave > 100 ? 'disabled' : ''}>
 			Save Jokes
 		</AnchorStyles>
 	)

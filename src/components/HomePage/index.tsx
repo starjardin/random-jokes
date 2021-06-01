@@ -7,7 +7,13 @@ import ButtonNextToFetchNextJoke from '../Button'
 import Inputs from '../Inputs'
 import Minus from '../../assets/minus.svg'
 import Plus from '../../assets/plus.svg'
-import { HomeStyles, ButtonContainer, ChuckNorrisPhotoStyles, TextJokes } from '../../styles/HomePageStyles'
+import {
+	HomeStyles,
+	ButtonContainer,
+	ChuckNorrisPhotoStyles,
+	TextJokes,
+	ErrorStyles
+} from '../../styles/HomePageStyles'
 import SaveJokes from '../SaveJokes'
 
 const HomePage = () => {
@@ -29,6 +35,8 @@ const HomePage = () => {
 		return
 	}
 
+	const errorClass = numberOfJokesToSave > 100 ? 'error' : ''
+
 	return (
 		<HomeStyles>
 			<ChuckNorrisPhotoStyles
@@ -38,17 +46,18 @@ const HomePage = () => {
 			<Inputs />
 			<ButtonNextToFetchNextJoke />
 			<ButtonContainer>
-				<div>
-					<button onClick={decreaseNumber}>
+				<div className={errorClass}>
+					<button onClick={decreaseNumber} className={errorClass}>
 						<img src={Minus} alt='minus-sign' />
 					</button>
 					<span>{numberOfJokesToSave}</span>
-					<button onClick={increaseNumber}>
+					<button onClick={increaseNumber} className={errorClass}>
 						<img src={Plus} alt='plus-sign' />
 					</button>
 				</div>
 				<SaveJokes />
 			</ButtonContainer>
+			{numberOfJokesToSave > 100 && <ErrorStyles>You can pick a number from 1 to 100</ErrorStyles>}
 		</HomeStyles>
 	)
 }

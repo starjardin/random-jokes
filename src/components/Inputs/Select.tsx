@@ -30,8 +30,6 @@ export default function Select() {
 		[ category ]
 	)
 
-	console.log(state)
-
 	return (
 		<FieldsetStyles className={openDropDown ? 'open-dropdown' : ''}>
 			<DropDown className='custom-select-wrapper' onClick={toggleOpen}>
