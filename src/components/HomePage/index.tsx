@@ -3,7 +3,6 @@ import { useContext } from 'react'
 import ChuckNorrisPhoto from '../../assets/Chuck-Norris-photo@2x.jpg'
 import randomPhoto from '../../assets/Random photo@2x.jpg'
 import { GlobalContext } from '../../context/globalContext'
-import ButtonNextToFetchNextJoke from '../Button'
 import Inputs from '../Inputs'
 import Minus from '../../assets/minus.svg'
 import Plus from '../../assets/plus.svg'
@@ -43,11 +42,10 @@ const HomePage = () => {
 		<HomeStyles>
 			<ChuckNorrisPhotoStyles
 				//* if name are Chuck Norris: load Chuck Norris picture else load Random picuture
-				src={state.firstName === 'Chuck' && state.lastName === 'Norris' ? ChuckNorrisPhoto : randomPhoto}
+				src={state.firstName === '' && state.lastName === '' ? ChuckNorrisPhoto : randomPhoto}
 			/>
 			<TextJokes>{joke}</TextJokes>
 			<Inputs />
-			<ButtonNextToFetchNextJoke />
 			<ButtonContainer>
 				<div className={errorClass}>
 					<button onClick={decreaseNumber} className={errorClass}>

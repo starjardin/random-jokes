@@ -8,8 +8,8 @@ import { fetchJokes } from '../utils/fetchJokes'
 //* initial state
 const initialState: initialStateType = {
 	isLoading: true,
-	lastName: 'Norris',
-	firstName: 'Chuck',
+	lastName: '',
+	firstName: '',
 	category: '',
 	numberOfJokesToSave: 0,
 	jokesToSave: {

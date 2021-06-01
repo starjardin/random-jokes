@@ -7,7 +7,7 @@ export const DropDown = styled.div`
 		cursor: pointer;
 		padding: 16px;
 	}
-
+	
 	.custom-select__trigger {
 		display: flex;
 		align-items: center;
@@ -16,6 +16,10 @@ export const DropDown = styled.div`
 		color: #c4c4c4;
 	}
 	
+	.custom-select__trigger.focus {
+		color: #34394f;
+	}
+
 	.custom-option {
 		display: block;
 		font-size: 16px;
@@ -59,7 +63,7 @@ export const DropDown = styled.div`
 		background-color: #c4c4c4;
 	}
 	.arrow::after {
-		left: 2px;
+		left: 3px;
 		transform: rotate(45deg);
 		background-color: #c4c4c4;
 	}
@@ -68,7 +72,7 @@ export const DropDown = styled.div`
 		transform: rotate(45deg);
 	}
 	.open .arrow::after {
-		left: 2px;
+		left: 3px;
 		transform: rotate(-45deg);
 	}
 `
@@ -79,4 +83,14 @@ export const FieldsetStyles = styled.fieldset`
 	max-width: 436px;
 	padding: 0;
 	margin: 0 0 16px 0;
+	&.focus {
+		border: solid 2px #34394f;
+
+		.arrow::before {
+			background-color: #34394f;
+		}
+		.arrow::after {
+			background-color: #34394f;
+		}
+	}
 `

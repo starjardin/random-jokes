@@ -44,6 +44,13 @@ export const InputSyles = styled.fieldset`
 	input:focus + label {
 		top: 25%;
 	}
+	input.focus + label {
+		top: 25%;
+	}
+
+	input.focus {
+		border: solid 2px #34394f;
+	}
 `
 
 export const FormStyles = styled.form`
@@ -57,12 +64,15 @@ export const FormStyles = styled.form`
 		background-color: #fff;
 	}
 
+	button {
+		margin-top: 32px;
+	}
+
 	.open-dropdown ~ button {
-		margin-top: 7rem;
+		margin-top: calc(16px * 7.5);
 	}
 
 	.open-dropdown ~ fieldset {
 		visibility: hidden;
 	}
 `
-export const ButtonSubmitStyles = styled.button`visibility: hidden;`

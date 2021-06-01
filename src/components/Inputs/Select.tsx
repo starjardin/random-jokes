@@ -39,10 +39,13 @@ export default function Select() {
 	)
 
 	return (
-		<FieldsetStyles className={openDropDown ? 'open-dropdown' : ''}>
+		<FieldsetStyles
+			//add className open-dropdown if openDropdown is true
+			//add className focus if open-dropdown and category are true
+			className={`${openDropDown ? 'open-dropdown' : ''} ${!openDropDown && category ? 'focus' : ''}`}>
 			<DropDown className='custom-select-wrapper' onClick={toggleOpen}>
 				<div className={openDropDown ? 'custom-select open' : 'custom-select'}>
-					<div className='custom-select__trigger'>
+					<div className={`custom-select__trigger ${category ? 'focus' : ''}`}>
 						<span data-value={''} onClick={(e) => handleCategory(e)}>
 							{openDropDown ? 'Select category' : category ? category : 'Category'}
 						</span>
