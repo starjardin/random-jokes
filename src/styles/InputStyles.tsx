@@ -23,15 +23,22 @@ export const InputSyles = styled.fieldset`
 	input[type="text"] {
 		position: relative;
 		z-index: 2;
-		font-size: 12px;
+		font-family: Inter;
+		font-size: 16px;
+		font-weight: normal;
+		font-stretch: normal;
+		font-style: normal;
+		line-height: 1.63;
+		letter-spacing: -0.52px;
 		transition: 0.3s all ease;
-		padding: 16px;
 		border-radius: 6px;
-		border: solid 1px #c4c4c4;
+		border: solid 2px #c4c4c4;
 		width: 100%;
-		max-width: calc(439px - 16px * 2);
-		padding-top: 30px;
-		color: #c4c4c4;
+		max-width: calc(437px - 16px * 2);
+		padding-inline: 16px;
+		padding-top: 26px;
+		padding-bottom: 6px;
+		color: #34394f;
 	}
 
 	input:focus + label {
@@ -52,6 +59,10 @@ export const FormStyles = styled.form`
 
 	.open-dropdown ~ button {
 		margin-top: 7rem;
+	}
+
+	.open-dropdown ~ fieldset {
+		visibility: hidden;
 	}
 `
 export const ButtonSubmitStyles = styled.button`visibility: hidden;`

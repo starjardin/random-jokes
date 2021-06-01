@@ -1,5 +1,4 @@
 import { useContext } from 'react'
-import styled from 'styled-components'
 
 import { GlobalContext } from '../../context/globalContext'
 import Select from './Select'

@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from 'react'
-import { GlobalContext } from '../../context/globalContext'
 import axios from 'axios'
 import styled from 'styled-components'
+
+import { GlobalContext } from '../../context/globalContext'
 import { typeOfMultipleJokesObjects } from '../../Interfaces/index'
 import { API_KEY } from '../../constant'
 
@@ -9,6 +10,8 @@ const AnchorStyles = styled.a`
 	&.disabled {
 		background-color: #f5f6f8;
 		color: #34394f;
+		pointer-events: none;
+		cursor: not-allowed;
 	}
 `
 

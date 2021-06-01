@@ -50,8 +50,8 @@ export const ButtonContainer = styled.div`
 	a {
 		background-color: #f5f6f8;
 		border: none;
-		width: 100%;
 		display: block;
+		padding: 0;
 	}
 
 	& > a {
@@ -72,6 +72,7 @@ export const ButtonContainer = styled.div`
 
 	span {
 		color: #34394f;
+		display: inline-block;
 	}
 `
 

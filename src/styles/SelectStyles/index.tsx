@@ -1,53 +1,43 @@
 import styled from 'styled-components'
 
 export const DropDown = styled.div`
-	.custom-select__trigger {
+	.custom-select__trigger,
+	.custom-option {
 		position: relative;
+		cursor: pointer;
+		padding: 16px;
+	}
+
+	.custom-select__trigger {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		cursor: pointer;
 		text-transform: capitalize;
-		padding: 16px;
 		color: #c4c4c4;
 	}
-	.custom-options {
-		display: block;
-		top: 100%;
-		left: 0;
-		right: 0;
-		transition: all 0.5s;
-		opacity: 0;
-		visibility: hidden;
-		pointer-events: none;
-		z-index: 2;
-	}
-	.custom-select.open .custom-options {
-		opacity: 1;
-		visibility: visible;
-		pointer-events: all;
-	}
+	
 	.custom-option {
-		position: relative;
 		display: block;
-		line-height: 1.63;
+		font-size: 16px;
+	  font-weight: normal;
+  	font-stretch: normal;
+  	font-style: normal;
+  	line-height: 1.63;
 		letter-spacing: -0.52px;
 		text-align: left;
-		cursor: pointer;
 		transition: all 0.5s;
-		padding: 16px;
 		border-radius: 5px;
     margin-inline: 8px;
-    margin-block: 13px;
+    margin-block: 8px;
+		color: #34394f;
 	}
 	.custom-option:hover {
 		cursor: pointer;
-		color: #c4c4c4;
-		background-color: #b2b2b2;
-	}
-	.custom-option:hover {
+		color: #34394f;
+		font-weight: 500;
 		background-color: #e9e9e9;
-}
+	}
+	
 	}
 	.arrow {
 		position: relative;
@@ -85,8 +75,8 @@ export const DropDown = styled.div`
 
 export const FieldsetStyles = styled.fieldset`
 	border-radius: 5px;
-	border: solid 1px #c4c4c4;
-	max-width: 526px;
+	border: solid 2px #c4c4c4;
+	max-width: 436px;
 	padding: 0;
 	margin: 0 0 16px 0;
 `

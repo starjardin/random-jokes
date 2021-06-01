@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 
 import ChuckNorrisPhoto from '../../assets/Chuck-Norris-photo@2x.jpg'
-import randomPhoto from '../../assets/Random-photo@3x.jpg'
+import randomPhoto from '../../assets/Random photo@2x.jpg'
 import { GlobalContext } from '../../context/globalContext'
 import ButtonNextToFetchNextJoke from '../Button'
 import Inputs from '../Inputs'
@@ -53,7 +53,10 @@ const HomePage = () => {
 					<button onClick={decreaseNumber} className={errorClass}>
 						<img src={Minus} alt='minus-sign' />
 					</button>
-					<span>{numberOfJokesToSave}</span>
+					<span>
+						{numberOfJokesToSave}
+						{numberOfJokesToSave > 0 ? '|' : ''}
+					</span>
 					<button onClick={increaseNumber} className={errorClass}>
 						<img src={Plus} alt='plus-sign' />
 					</button>
