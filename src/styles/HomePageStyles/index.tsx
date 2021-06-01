@@ -58,9 +58,33 @@ export const ButtonContainer = styled.div`
 		flex-basis: 70%;
 		border-radius: 6px;
 		display: flex;
+		background-color: #34394f;
+		color: #ffffff;
 		flex-direction: revert;
 		justify-content: space-around;
 		align-items: center;
 		text-decoration: none;
 	}
+
+	.error {
+		background-color: #f39a9a;
+	}
+
+	span {
+		color: #34394f;
+	}
+`
+
+export const ErrorStyles = styled.p`
+	margin: 12px 0 0;
+	opacity: 0.6;
+	font-family: Inter;
+	font-size: 16px;
+	font-weight: 600;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.63;
+	letter-spacing: -0.52px;
+	text-align: left;
+	color: #f39a9a;
 `
