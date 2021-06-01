@@ -18,6 +18,7 @@ import SaveJokes from '../SaveJokes'
 
 const HomePage = () => {
 	const { state, dispatch } = useContext(GlobalContext)
+	//*Deep distructuring from state
 	const { joke: { value: { joke } }, numberOfJokesToSave } = state
 
 	function increaseNumber() {
@@ -32,14 +33,16 @@ const HomePage = () => {
 				type: 'DECREASE_NUMBER'
 			})
 		}
+		//*Do can't go below zero
 		return
 	}
-
+	//* set error class
 	const errorClass = numberOfJokesToSave > 100 ? 'error' : ''
 
 	return (
 		<HomeStyles>
 			<ChuckNorrisPhotoStyles
+				//* if name are Chuck Norris: load Chuck Norris picture else load Random picuture
 				src={state.firstName === 'Chuck' && state.lastName === 'Norris' ? ChuckNorrisPhoto : randomPhoto}
 			/>
 			<TextJokes>{joke}</TextJokes>
@@ -57,6 +60,7 @@ const HomePage = () => {
 				</div>
 				<SaveJokes />
 			</ButtonContainer>
+			{/* display this paragraph if the number of jokes to display is more than 100 */}
 			{numberOfJokesToSave > 100 && <ErrorStyles>You can pick a number from 1 to 100</ErrorStyles>}
 		</HomeStyles>
 	)

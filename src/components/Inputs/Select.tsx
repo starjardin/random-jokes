@@ -1,8 +1,8 @@
 import { useContext, useState, useEffect } from 'react'
 import { GlobalContext } from '../../context/globalContext'
 import { DropDown, FieldsetStyles } from '../../styles/SelectStyles/'
-import axios from 'axios'
 import { API_KEY } from '../../constant'
+import { fetchJokes } from '../../utils/fetchJokes'
 
 export default function Select() {
 	const [ openDropDown, setOpenDropDown ] = useState(false)
@@ -19,14 +19,17 @@ export default function Select() {
 		})
 	}
 
+	async function fetchJokesByCategory() {
+		const data = await fetchJokes(`${API_KEY}?limitTo=${category}`)
+		dispatch({
+			type: 'FETCH_JOKES_BY_CATEGORY',
+			payload: data
+		})
+	}
+
 	useEffect(
 		() => {
-			axios(`${API_KEY}?limitTo=${category}`).then((results) => {
-				dispatch({
-					type: 'FETCH_JOKES_BY_CATEGORY',
-					payload: results.data
-				})
-			})
+			fetchJokesByCategory()
 		},
 		// eslint-disable-next-line
 		[ category ]

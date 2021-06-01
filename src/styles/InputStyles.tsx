@@ -5,6 +5,7 @@ export const InputSyles = styled.fieldset`
 	margin: 0 auto;
 	position: relative;
 	padding: 0;
+	border: none;
 
 	label {
 		position: absolute;
@@ -29,10 +30,12 @@ export const InputSyles = styled.fieldset`
 		border: solid 1px #c4c4c4;
 		width: 100%;
 		max-width: calc(439px - 16px * 2);
+		padding-top: 30px;
+		color: #c4c4c4;
 	}
 
 	input:focus + label {
-		top: 5px;
+		top: 25%;
 	}
 `
 
@@ -51,3 +54,4 @@ export const FormStyles = styled.form`
 		margin-top: 7rem;
 	}
 `
+export const ButtonSubmitStyles = styled.button`visibility: hidden;`
