@@ -27,6 +27,7 @@ export default function Select() {
 				})
 			})
 		},
+		// eslint-disable-next-line
 		[ category ]
 	)
 

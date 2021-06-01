@@ -39,6 +39,7 @@ const SaveJokes = () => {
 			makeTextFile()
 			fetchJokesToSave()
 		},
+		// eslint-disable-next-line
 		[ numberOfJokesToSave ]
 	)
 
