@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 
-import ChuckNorrisPhoto from '../../assets/Chuck-Norris-photo@2x.jpg'
-import randomPhoto from '../../assets/Random photo@2x.jpg'
+import ChuckNorrisPhoto from '../../assets/chuck-norris-photo.jpg'
+import randomPhoto from '../../assets/random-photo.jpg'
 import { GlobalContext } from '../../context/globalContext'
 import Inputs from '../Inputs'
 import Minus from '../../assets/minus.svg'
@@ -32,7 +32,7 @@ const HomePage = () => {
 				type: 'DECREASE_NUMBER'
 			})
 		}
-		//*Do can't go below zero
+		//*can't go below zero // Cant't download -(numbers) of jokes
 		return
 	}
 	//* set error class
@@ -43,6 +43,7 @@ const HomePage = () => {
 			<ChuckNorrisPhotoStyles
 				//* if name are Chuck Norris: load Chuck Norris picture else load Random picuture
 				src={state.firstName === '' && state.lastName === '' ? ChuckNorrisPhoto : randomPhoto}
+				alt={'author-picture'}
 			/>
 			<TextJokes>{joke}</TextJokes>
 			<Inputs />

@@ -2,7 +2,7 @@ import { useContext } from 'react'
 
 import { GlobalContext } from '../../context/globalContext'
 import Select from './Select'
-import { InputSyles, FormStyles } from '../../styles/InputStyles'
+import { InputStyles, FormStyles } from '../../styles/InputStyles'
 import { API_KEY } from '../../constant'
 import { fetchJokes } from '../../utils/fetchJokes'
 import Button from '../Button'
@@ -42,8 +42,8 @@ export default function Inputs() {
 		dispatch({
 			//* set firstName and lastName here
 			type: 'IMPERSONATE',
-			payloadfirstName: firstNameValue,
-			payloadlastName: lastNameValue
+			payloadFirstName: firstNameValue,
+			payloadLastName: lastNameValue
 		})
 	}
 
@@ -51,7 +51,7 @@ export default function Inputs() {
 		<div>
 			<FormStyles onSubmit={(e) => handleOnSubmit(e)}>
 				<Select />
-				<InputSyles>
+				<InputStyles>
 					<input
 						name='impersonate'
 						type='text'
@@ -60,7 +60,7 @@ export default function Inputs() {
 						className={`${firstName ? 'focus' : ''}`}
 					/>
 					<label htmlFor='impersonate'>Impersonate Chuck Norris</label>
-				</InputSyles>
+				</InputStyles>
 				<Button />
 			</FormStyles>
 		</div>

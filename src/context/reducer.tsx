@@ -21,8 +21,8 @@ export const reducer = (state: initialStateType, action: Action) => {
 		case 'IMPERSONATE': {
 			return {
 				...state,
-				firstName: action.payloadfirstName,
-				lastName: action.payloadlastName
+				firstName: action.payloadFirstName,
+				lastName: action.payloadLastName
 			}
 		}
 		case 'CHOOSE_CATEGORY': {

@@ -12,6 +12,7 @@ export const HomeStyles = styled.div`
 export const ChuckNorrisPhotoStyles = styled.img`
 	width: 100%;
 	height: auto;
+	max-height: 127px;
 	margin: auto;
 	object-fit: contain;
 `

@@ -2,7 +2,7 @@
 export type Action =
 	| { type: 'LOAD_RANDOM_JOKE'; payload: jokeType }
 	| { type: 'FETCH_RANDOM_JOKES'; payload: jokeType }
-	| { type: 'IMPERSONATE'; payloadfirstName: string; payloadlastName: string }
+	| { type: 'IMPERSONATE'; payloadFirstName: string; payloadLastName: string }
 	| { type: 'CHOOSE_CATEGORY'; payload: string }
 	| { type: 'INCREASE_NUMBER' }
 	| { type: 'DECREASE_NUMBER' }

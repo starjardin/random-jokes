@@ -38,18 +38,23 @@ export default function Select() {
 		[ category ]
 	)
 
+	const fieldsetClass = `${openDropDown ? 'open-dropdown' : ''} ${!openDropDown && category ? 'focus' : ''}`
+	const customSelectClass = openDropDown ? 'custom-select open' : 'custom-select'
+	const customSelectTriggerClass = `custom-select__trigger ${category ? 'focus' : ''}`
+	const customSelectTriggerValue = openDropDown ? 'Select category' : category ? category : 'Category'
+
 	return (
 		<FieldsetStyles
 			//add className open-dropdown if openDropdown is true
 			//add className focus if open-dropdown and category are true
-			className={`${openDropDown ? 'open-dropdown' : ''} ${!openDropDown && category ? 'focus' : ''}`}>
+			className={fieldsetClass}>
 			<DropDown className='custom-select-wrapper' onClick={toggleOpen}>
-				<div className={openDropDown ? 'custom-select open' : 'custom-select'}>
-					<div className={`custom-select__trigger ${category ? 'focus' : ''}`}>
+				<div className={customSelectClass}>
+					<div className={customSelectTriggerClass}>
 						<span data-value={''} onClick={(e) => handleCategory(e)}>
-							{openDropDown ? 'Select category' : category ? category : 'Category'}
+							{customSelectTriggerValue}
 						</span>
-						<div className={openDropDown ? 'arrow' : 'arrow'} />
+						<div className='arrow' />
 					</div>
 					{openDropDown && (
 						<div className='custom-options'>

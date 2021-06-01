@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const InputSyles = styled.fieldset`
+export const InputStyles = styled.fieldset`
 	font-size: 12px;
 	margin: 0 auto;
 	position: relative;

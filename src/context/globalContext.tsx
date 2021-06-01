@@ -35,7 +35,7 @@ export const GlobalContext = createContext<{
 	dispatch: () => null
 })
 
-//*Context porvider component
+//*Context provider component
 export const ContextProvider: React.FC = ({ children }) => {
 	const [ state, dispatch ] = useReducer(reducer, initialState)
 
