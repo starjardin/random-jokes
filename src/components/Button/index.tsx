@@ -3,6 +3,7 @@ import axios from 'axios'
 import styled from 'styled-components'
 
 import { GlobalContext } from '../../context/globalContext'
+import { API_KEY } from '../../constant'
 
 const ButtonStyles = styled.button`
 	padding-block: 16.8px;
@@ -26,9 +27,7 @@ export default function Button() {
 		<div>
 			<ButtonStyles
 				onClick={() => {
-					axios(
-						`http://api.icndb.com/jokes/random?firstName=${firstName}&lastName=${lastName}`
-					).then((results) => {
+					axios(`${API_KEY}?firstName=${firstName}&lastName=${lastName}`).then((results) => {
 						dispatch({
 							type: 'FETCH_RANDOM_JOKES',
 							payload: results.data
