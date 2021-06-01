@@ -17,29 +17,29 @@ const SaveJokes = () => {
 	const [ downloadLink, setDownloadLink ] = useState('')
 	const textToSave = jokesToSave.value.map((el: typeOfMultipleJokesObjects) => el.joke)
 
+	const makeTextFile = () => {
+		//Put every single joke in a new line.
+		const data = new Blob([ textToSave.join('\n') ], { type: 'text/plain' })
+
+		if (downloadLink !== '') window.URL.revokeObjectURL(downloadLink)
+		setDownloadLink(window.URL.createObjectURL(data))
+	}
+
+	function fetchJokesToSave() {
+		axios(`http://api.icndb.com/jokes/random/${numberOfJokesToSave}`).then((results) => {
+			dispatch({
+				type: 'FETCH_MULTIPLE_JOKES',
+				payload: results.data
+			})
+		})
+	}
+
 	useEffect(
 		() => {
-			const makeTextFile = () => {
-				//Put every single joke in a new line.
-				const data = new Blob([ textToSave.join('\n') ], { type: 'text/plain' })
-
-				if (downloadLink !== '') window.URL.revokeObjectURL(downloadLink)
-				setDownloadLink(window.URL.createObjectURL(data))
-			}
-
-			function fetchJokesToSave() {
-				axios(`http://api.icndb.com/jokes/random/${numberOfJokesToSave}`).then((results) => {
-					dispatch({
-						type: 'FETCH_MULTIPLE_JOKES',
-						payload: results.data
-					})
-				})
-			}
-
 			makeTextFile()
 			fetchJokesToSave()
 		},
-		[ dispatch, downloadLink, numberOfJokesToSave, textToSave ]
+		[ numberOfJokesToSave ]
 	)
 
 	return (
