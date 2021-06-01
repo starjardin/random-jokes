@@ -1,4 +1,4 @@
-//? random jokes: http://api.icndb.com/jokes/random
+//? random jokes: https://api.icndb.com/jokes/random
 
 import React, { createContext, useEffect, useReducer } from 'react'
 import axios from 'axios'
@@ -41,7 +41,7 @@ export const ContextProvider: React.FC = ({ children }) => {
 	const [ state, dispatch ] = useReducer(reducer, initialState)
 
 	function fetchRandomJOke() {
-		axios(`http://api.icndb.com/jokes/random`).then((results) => {
+		axios(`https://api.icndb.com/jokes/random`).then((results) => {
 			dispatch({
 				type: 'LOAD_RANDOM_JOKE',
 				payload: results.data
