@@ -1,10 +1,9 @@
-//? random jokes: https://api.icndb.com/jokes/random
-
 import React, { createContext, useEffect, useReducer } from 'react'
 import axios from 'axios'
 
 import { reducer } from './reducer'
 import { initialStateType } from '../Interfaces'
+import { API_KEY } from '../constant'
 
 //* initial state
 const initialState: initialStateType = {
@@ -41,7 +40,7 @@ export const ContextProvider: React.FC = ({ children }) => {
 	const [ state, dispatch ] = useReducer(reducer, initialState)
 
 	function fetchRandomJOke() {
-		axios(`https://api.icndb.com/jokes/random`).then((results) => {
+		axios(API_KEY).then((results) => {
 			dispatch({
 				type: 'LOAD_RANDOM_JOKE',
 				payload: results.data

@@ -3,6 +3,7 @@ import { GlobalContext } from '../../context/globalContext'
 import axios from 'axios'
 import styled from 'styled-components'
 import { typeOfMultipleJokesObjects } from '../../Interfaces/index'
+import { API_KEY } from '../../constant'
 
 const AnchorStyles = styled.a`
 	&.disabled {
@@ -26,7 +27,7 @@ const SaveJokes = () => {
 	}
 
 	function fetchJokesToSave() {
-		axios(`http://api.icndb.com/jokes/random/${numberOfJokesToSave}`).then((results) => {
+		axios(`${API_KEY}/${numberOfJokesToSave}`).then((results) => {
 			dispatch({
 				type: 'FETCH_MULTIPLE_JOKES',
 				payload: results.data

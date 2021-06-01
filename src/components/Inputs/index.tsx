@@ -5,6 +5,7 @@ import axios from 'axios'
 import { GlobalContext } from '../../context/globalContext'
 import Select from './Select'
 import { InputSyles, FormStyles } from '../../styles/InputStyles'
+import { API_KEY } from '../../constant'
 
 const ButtonSubmitStyles = styled.button`visibility: hidden;`
 
@@ -29,9 +30,7 @@ export default function Inputs() {
 			payloadfirstName: firstNameValue,
 			payloadlastName: lastNameValue
 		})
-		axios(`http://api.icndb.com/jokes/random?
-    firstName=${firstNameValue}&
-        lastName=${lastNameValue}`).then((results) => {
+		axios(`${API_KEY}?firstName=${firstNameValue}&lastName=${lastNameValue}`).then((results) => {
 			dispatch({
 				type: 'FETCH_RANDOM_JOKES',
 				payload: results.data

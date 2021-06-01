@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from 'react'
 import { GlobalContext } from '../../context/globalContext'
 import { DropDown, FieldsetStyles } from '../../styles/SelectStyles/'
 import axios from 'axios'
+import { API_KEY } from '../../constant'
 
 export default function Select() {
 	const [ openDropDown, setOpenDropDown ] = useState(false)
@@ -20,7 +21,7 @@ export default function Select() {
 
 	useEffect(
 		() => {
-			axios(`http://api.icndb.com/jokes/random?limitTo=${category}`).then((results) => {
+			axios(`${API_KEY}?limitTo=${category}`).then((results) => {
 				dispatch({
 					type: 'FETCH_JOKES_BY_CATEGORY',
 					payload: results.data
