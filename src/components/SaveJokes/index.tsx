@@ -1,6 +1,13 @@
 import { useContext, useEffect, useState } from 'react'
 import { GlobalContext } from '../../context/globalContext'
 import axios from 'axios'
+import styled from 'styled-components'
+
+const AnchorStyles = styled.a`
+	&.disabled {
+		display: none;
+	}
+`
 
 const SaveJokes = () => {
 	const { state, dispatch } = useContext(GlobalContext)
@@ -34,13 +41,14 @@ const SaveJokes = () => {
 	)
 
 	return (
-		<a
+		<AnchorStyles
 			// this attribute sets the filename
 			download='list.txt'
 			// link to the download URL
-			href={downloadLink}>
+			href={downloadLink}
+			className={numberOfJokesToSave < 0 || numberOfJokesToSave > 100 ? 'disabled' : ''}>
 			Save Jokes
-		</a>
+		</AnchorStyles>
 	)
 }
 
