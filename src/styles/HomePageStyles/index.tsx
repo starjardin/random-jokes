@@ -3,10 +3,17 @@ import styled from 'styled-components'
 export const HomeStyles = styled.div`
 	max-width: 439px;
 	padding: 48px 58px 72px;
-	border-radius: 8px;
+	border-radius: 20px;
 	box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.08);
 	background-color: #ffffff;
 	margin: auto;
+`
+
+export const LoaderStyles = styled.div`
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%);
 `
 
 export const ChuckNorrisPhotoStyles = styled.img`
